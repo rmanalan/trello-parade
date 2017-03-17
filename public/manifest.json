@@ -1,8 +1,8 @@
 {
-  "name": "Gomix Sample",
-  "details":"The [Gomix](https://gomix.com) Power-Up allows you to...",
+  "name": "Glitch Sample",
+  "details":"The [Glitch](https://glitch.com) Power-Up allows you to...",
   "icon": {
-    "url": "https://cdn.hyperdev.com/us-east-1:3d31b21c-01a0-4da2-8827-4bc6e88b7618/hyperdev.svg"
+    "url": "https://cdn.glitch.com/2442c68d-7b6d-4b69-9d13-feab530aa88e%2Fglitch-icon.svg?1489773457908"
   },
   "author": "Trello Inc",
   "capabilities": [

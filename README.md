@@ -1,4 +1,4 @@
-# Gomix Hosted Sample Trello Power-Up
+# Glitch Hosted Sample Trello Power-Up
 
 To see this in action go to:
 
