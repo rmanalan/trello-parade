@@ -198,7 +198,7 @@ var cardButtonCallback = function(t){
   
   // in the above case we let Trello do the searching client side
   // but what if we don't have all the information up front?
-  // no fear, instead of giving Trello an array of `items` you can give it a function instead
+  // no worries, instead of giving Trello an array of `items` you can give it a function instead
   /*
   return t.popup({
     title: 'Popup Async Search',
