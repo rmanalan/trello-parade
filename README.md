@@ -6,7 +6,7 @@ This is a full featured sample Trello Power-Up. What does that mean for you? We 
 
 Once you remix this, you'll want to take a look at what the new name is. Click the `Show Live` button up in the top bar and grab that url. You'll want to add `/manifest.json` to the end of it and then head here:
 
-[https://trello.com/power-ups/admin](https://trello.com/power-ups/admin)
+👉  [https://trello.com/power-ups/admin](https://trello.com/power-ups/admin)
 
 Select the Trello team you want to add the Power-Up to. Note: You need to be an admin of the Trello team to add custom Power-Ups to it.
 
