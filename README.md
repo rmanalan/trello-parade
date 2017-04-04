@@ -18,7 +18,7 @@ Now when you look at the Power-Ups for any board in that team, your awesome new 
 
 ---
 
-Want more information about Power-Ups?
+Want more information about Power-Ups? 🤔
 
 👉  [https://developers.trello.com/power-ups/intro](https://developers.trello.com/power-ups/intro)
 
@@ -26,6 +26,6 @@ We even have office hours you can sign up for if you want to talk to a real live
 
 ---
 
-Looking for a more _realistic_ example Power-Up? You may find the Trello Card Snooze Power-Up useful.
+Looking for a more _realistic_ example Power-Up? You may find the Trello Card Snooze Power-Up useful. 😴
 
 👉  [Trello Card Snooze Glitch Project](https://glitch.com/edit/#!/trellocardsnooze)
