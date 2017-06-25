@@ -31,6 +31,6 @@ document.getElementById('save').addEventListener('click', function(){
     return t.set('board', 'shared', 'fruit', fruitSelector.value);
   })
   .then(function(){
-    t.notifyParent('done');
+    t.closePopup();
   })
 })
