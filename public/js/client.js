@@ -172,14 +172,11 @@ var boardButtonCallback = function(t){
               position: 'left',
             }, {
               icon: GRAY_ICON,
-              callback: () => console.log(':tada:'),
+              callback: () => console.log('🏎'),
               alt: 'Right side',
               position: 'right',
             }],
           })
-          .then(function(){
-            return t.closeModal();
-          });
         }
       },
       {
