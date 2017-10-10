@@ -199,6 +199,7 @@ var cardButtonCallback = function(t){
       url: urlForCode,
       callback: function(t){
         // in this case we want to attach that park to the card as an attachment
+        // 
         return t.attach({ url: urlForCode, name: nameForCode })
         .then(function(){
           // once that has completed we should tidy up and close the popup
@@ -395,7 +396,8 @@ TrelloPowerUp.initialize({
     // In this case we'll open a popup to get a user's Trello token.
     return t.popup({
       title: 'My Auth Popup',
-      url: './authorize.html', // this page doesn't exist in this project but is just a normal page like settings.html
+      args: { apiKey: process.env.TRELLO_API_KEY }, // Get API key from local environment variable
+      url: './authorize.html', // Check out public/authorize.html to see how to ask a user to auth with Trello
       height: 140,
     });
   },
