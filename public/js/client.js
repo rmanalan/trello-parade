@@ -198,13 +198,18 @@ var cardButtonCallback = function(t){
       text: nameForCode,
       url: urlForCode,
       callback: function(t){
-        // in this case we want to attach that park to the card as an attachment
-        // 
-        return t.attach({ url: urlForCode, name: nameForCode })
-        .then(function(){
-          // once that has completed we should tidy up and close the popup
-          return t.closePopup();
-        });
+        // In this case we want to attach that park to the card as an attachment
+        // but first let's ensure that the user can write on this model
+        if (t.memberCanWriteToModel('card')){
+          return t.attach({ url: urlForCode, name: nameForCode })
+          .then(function(){
+            // once that has completed we should tidy up and close the popup
+            return t.closePopup();
+          });
+        } else {
+          console.log("Oh no! You don't have permission to add attachments to this card.")
+          return t.closePopup(); // We're just going to close the popup for now.
+        };
       }
     };
   });
