@@ -373,18 +373,26 @@ TrelloPowerUp.initialize({
   // The following two capabilities should be used together to determine:
   // 1. whether a user is appropriately authorized
   // 2. what to do when a user isn't completely authorized
-  
   'authorization-status': function(t, options){
-    // return a promise that resolves to the object with
-    // a property 'authorized' being true/false
-    // you can also return the object synchronously if you know the answer synchronously
-    return new TrelloPowerUp.Promise((resolve) => resolve({ authorized: true }));
+    // Return a promise that resolves to an object with a boolean property 'authorized' of true or false
+    // The boolean value determines whether your Power-Up considers the user to be authorized or not.
+    
+    // When the value is false, Trello will show the user an "Authorize Account" options when
+    // they click on the Power-Up's gear icon in the settings. The 'show-authorization' capability
+    // below determines what should happen when the user clicks "Authorize Account"
+    
+    // For instance, if your Power-Up requires a token to be set for the member you could do the following:
+    return t.get('member', 'private', 'token')
+    .then(function(token){
+      return token.length > 0;
+    });
+    // You can also return the object synchronously if you know the answer synchronously.
   },
   'show-authorization': function(t, options){
-    // return what to do when a user clicks the 'Authorize Account' link
-    // from the Power-Up gear icon which shows when 'authorization-status'
-    // returns { authorized: false }
-    // in this case we would open a popup
+    // Returns what to do when a user clicks the 'Authorize Account' link from the Power-Up gear icon
+    // which shows when 'authorization-status' returns { authorized: false }.
+    
+    // In this case we would open a popup
     return t.popup({
       title: 'My Auth Popup',
       url: './authorize.html', // this page doesn't exist in this project but is just a normal page like settings.html
