@@ -387,10 +387,13 @@ TrelloPowerUp.initialize({
   },
   
   /*        
-      Authorization Capa
+      
+      🔑 Authorization Capabiltiies 🗝
+      
       The following two capabilities should be used together to determine:
       1. whether a user is appropriately authorized
       2. what to do when a user isn't completely authorized
+      
   */
   'authorization-status': function(t, options){
     // Return a promise that resolves to an object with a boolean property 'authorized' of true or false
