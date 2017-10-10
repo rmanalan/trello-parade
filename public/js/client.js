@@ -392,7 +392,7 @@ TrelloPowerUp.initialize({
     // Returns what to do when a user clicks the 'Authorize Account' link from the Power-Up gear icon
     // which shows when 'authorization-status' returns { authorized: false }.
     
-    // In this case we would open a popup
+    // In this case we'll open a popup to get a user's Trello token.
     return t.popup({
       title: 'My Auth Popup',
       url: './authorize.html', // this page doesn't exist in this project but is just a normal page like settings.html
