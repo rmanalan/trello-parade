@@ -397,9 +397,10 @@ TrelloPowerUp.initialize({
   'show-authorization': function(t, options){
     // Returns what to do when a user clicks the 'Authorize Account' link from the Power-Up gear icon
     // which shows when 'authorization-status' returns { authorized: false }.
-    
+    let trelloAPIKey;
+    console.log(window.location);
     // In this case we'll open a popup to get a user's Trello token.
-    if (process.env.TRELLO_API_KEY) {
+    if (trelloAPIKey) {
       return t.popup({
         title: 'My Auth Popup',
         args: { apiKey: process.env.TRELLO_API_KEY }, // Get API key from local environment variable
