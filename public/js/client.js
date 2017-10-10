@@ -148,18 +148,15 @@ var boardButtonCallback = function(t){
             fullscreen: true, // Whether the modal should stretch to take up the whole screen
             callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
             title: 'Hello, Modal!', // Optional title for modal header
-  
-            // You can add up to 3 action buttons on the modal header.
-            // optional action buttons for header chrome
-            // max 3, up to 1 on right side
+            // You can add up to 3 action buttons on the modal header - max 1 on the right side.
             actions: [{
               icon: GRAY_ICON,
-              url: 'https://google.com',
+              url: 'https://google.com', // Opens the URL passed to it.
               alt: 'Leftmost',
               position: 'left',
             }, {
               icon: GRAY_ICON,
-              callback: (tr) => tr.popup({
+              callback: (tr) => tr.popup({ // Callback to be called when user clicks the action button.
                 title: 'Settings',
                 url: 'settings.html',
                 height: 164,
@@ -194,7 +191,6 @@ var boardButtonCallback = function(t){
 var cardButtonCallback = function(t){
   // Trello Power-Up Popups are actually pretty powerful
   // Searching is a pretty common use case, so why reinvent the wheel
-  
   var items = ['acad', 'arch', 'badl', 'crla', 'grca', 'yell', 'yose'].map(function(parkCode){
     var urlForCode = 'http://www.nps.gov/' + parkCode + '/';
     var nameForCode = '🏞 ' + parkCode.toUpperCase();
@@ -216,9 +212,9 @@ var cardButtonCallback = function(t){
   // will let Trello do the heavy lifting
   return t.popup({
     title: 'Popup Search Example',
-    items: items, // Trello will search client side based on the text property of the items
+    items: items, // Trello will search client-side based on the text property of the items
     search: {
-      count: 5, // how many items to display at a time
+      count: 5, // How many items to display at a time
       placeholder: 'Search National Parks',
       empty: 'No parks found'
     }
@@ -286,12 +282,12 @@ TrelloPowerUp.initialize({
   'attachment-thumbnail': function(t, options){
     // options.url has the url of the attachment for us
     // return an object (or a Promise that resolves to it) with some or all of these properties:
-    // url, title, image, openText, modified (Date), created (Date), createdBy, modifiedBy
+    // url, title, image, modified (Date), created (Date), createdBy, modifiedBy
     
-    // You should use this if you have useful information about an attached URL
-    // however, it doesn't warrant pulling it out into a section
+    // You should use this if you have useful information about an attached URL but it
+    // doesn't warrant pulling it out into a section via the attachment-sections capability
     // for example if you just want to show a preview image and give it a better name
-    
+    // then attachment-thumbnail is the best option
     return {
       url: options.url,
       title: '👉 ' + options.url + ' 👈',
@@ -299,18 +295,11 @@ TrelloPowerUp.initialize({
         url: HYPERDEV_ICON,
         logo: true // false if you are using a thumbnail of the content
       },
-      openText: 'Open Sesame'
     };
     
     // if we don't actually have any valuable information about the url
     // we can let Trello know like so:
     // throw t.NotHandled();
-  },
-  'authorization-status': function(t, options){
-    // return a promise that resolves to the object with
-    // a property 'authorized' being true/false
-    // you can also return the object synchronously if you know the answer synchronously
-    return new TrelloPowerUp.Promise((resolve) => resolve({ authorized: true }));
   },
   'board-buttons': function(t, options){
     return [{
@@ -379,6 +368,17 @@ TrelloPowerUp.initialize({
     // if we don't actually have any valuable information about the url
     // we can let Trello know like so:
     // throw t.NotHandled();
+  },
+  
+  // The following two capabilities should be used together to determine:
+  // 1. whether a user is appropriately authorized
+  // 2. what to do when a user isn't completely authorized
+  
+  'authorization-status': function(t, options){
+    // return a promise that resolves to the object with
+    // a property 'authorized' being true/false
+    // you can also return the object synchronously if you know the answer synchronously
+    return new TrelloPowerUp.Promise((resolve) => resolve({ authorized: true }));
   },
   'show-authorization': function(t, options){
     // return what to do when a user clicks the 'Authorize Account' link
