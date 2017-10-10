@@ -44,17 +44,19 @@ With the scopes, you can only store data at the 'card' scope when a card is in s
 So for example in the context of 'card-badges' or 'attachment-sections', but not 'board-badges' or 'show-settings'
 Also keep in mind storing at the 'organization' scope will only work if the active user is a member of the team
 
-Information that is private to the current user, such as tokens should be stored using 'private'
+Information that is private to the current user, such as tokens should be stored using 'private' at the 'member' scope
 
 t.set('organization', 'private', 'key', 'value');
 t.set('board', 'private', 'key', 'value');
 t.set('card', 'private', 'key', 'value');
+t.set('member', 'private', 'key', 'value');
 
 Information that should be available to all users of the Power-Up should be stored as 'shared'
 
 t.set('organization', 'shared', 'key', 'value');
 t.set('board', 'shared', 'key', 'value');
 t.set('card', 'shared', 'key', 'value');
+t.set('member', 'shared', 'key', 'value');
 
 If you want to set multiple keys at once you can do that like so
 
@@ -138,22 +140,16 @@ var boardButtonCallback = function(t){
       {
         text: 'Open Modal',
         callback: function(t){
-          return t.modal({
-            // the url to load for the iframe
-            url: './modal.html',
-            // optional arguments to be passed to the iframe as query parameters
-            // access later with t.arg('text')
-            args: { text: 'Hello' },
-            // optional color for header chrome
-            accentColor: '#F2D600',
-            // initial height for iframe
-            height: 500, // not used if fullscreen is true
-            // whether the modal should stretch to take up the whole screen
-            fullscreen: true,
-            // optional function to be called if user closes modal (via `X` or escape, etc)
-            callback: () => console.log('Goodbye.'),
-            // optional title for header chrome
-            title: 'Hello, Modal!',
+          return t.modal({            
+            url: './modal.html', // The URL to load for the iframe
+            args: { text: 'Hello' }, // Optional args to access later with t.arg('text') on './modal.html'
+            accentColor: '#F2D600', // Optional color for the modal header 
+            height: 500, // Initial height for iframe; not used if fullscreen is true
+            fullscreen: true, // Whether the modal should stretch to take up the whole screen
+            callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
+            title: 'Hello, Modal!', // Optional title for modal header
+  
+            // You can add up to 3 action buttons on the modal header.
             // optional action buttons for header chrome
             // max 3, up to 1 on right side
             actions: [{
