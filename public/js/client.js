@@ -375,10 +375,23 @@ TrelloPowerUp.initialize({
     // we can let Trello know like so:
     // throw t.NotHandled();
   },
+  'show-settings': function(t, options){
+    // when a user clicks the gear icon by your Power-Up in the Power-Ups menu
+    // what should Trello show. We highly recommend the popup in this case as
+    // it is the least disruptive, and fits in well with the rest of Trello's UX
+    return t.popup({
+      title: 'Settings',
+      url: './settings.html',
+      height: 184 // we can always resize later, but if we know the size in advance, its good to tell Trello
+    });
+  },
   
-  // The following two capabilities should be used together to determine:
-  // 1. whether a user is appropriately authorized
-  // 2. what to do when a user isn't completely authorized
+  /*        
+      Authorization Capa
+      The following two capabilities should be used together to determine:
+      1. whether a user is appropriately authorized
+      2. what to do when a user isn't completely authorized
+  */
   'authorization-status': function(t, options){
     // Return a promise that resolves to an object with a boolean property 'authorized' of true or false
     // The boolean value determines whether your Power-Up considers the user to be authorized or not.
@@ -397,29 +410,24 @@ TrelloPowerUp.initialize({
   'show-authorization': function(t, options){
     // Returns what to do when a user clicks the 'Authorize Account' link from the Power-Up gear icon
     // which shows when 'authorization-status' returns { authorized: false }.
-    let trelloAPIKey;
-    console.log(window.location);
-    // In this case we'll open a popup to get a user's Trello token.
+    
+    // If we want to ask the user to authorize our Power-Up to make full use of the Trello API
+    // you'll need to add your API from trello.com/app-key below:
+    let trelloAPIKey = '';
+    // This key will be used to generate a token that you can pass along with the API key to Trello's
+    // RESTful API. Using the key/token pair, you can make requests on behalf of the authorized user.
+    
+    // In this case we'll open a popup to kick off the authorization flow.
     if (trelloAPIKey) {
       return t.popup({
         title: 'My Auth Popup',
-        args: { apiKey: process.env.TRELLO_API_KEY }, // Get API key from local environment variable
-        url: './authorize.html', // Check out public/authorize.html to see how to ask a user to auth with Trello
+        args: { apiKey: trelloAPIKey }, // Pass in API key to the iframe
+        url: './authorize.html', // Check out public/authorize.html to see how to ask a user to auth
         height: 140,
       });
     } else {
-      console.log("Looks like you need to add your API key to the project's environment variables!");
+      console.log("🙈 Looks like you need to add your API key to the project!");
     }
-  },
-  'show-settings': function(t, options){
-    // when a user clicks the gear icon by your Power-Up in the Power-Ups menu
-    // what should Trello show. We highly recommend the popup in this case as
-    // it is the least disruptive, and fits in well with the rest of Trello's UX
-    return t.popup({
-      title: 'Settings',
-      url: './settings.html',
-      height: 184 // we can always resize later, but if we know the size in advance, its good to tell Trello
-    });
   }
 });
 

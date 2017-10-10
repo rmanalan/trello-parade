@@ -12,14 +12,6 @@ app.use(compression());
 // your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: 'https://trello.com' }));
 
-
-app.use(function (request, response, next) {
-  if (request.url=='/js/client.js' && process.env.TRELLO_API_KEY){
-    request.url = 'public/js/client.js?apiKey=' + process.env.TRELLO_API_KEY;    
-  }
-  next();
-});
-
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
