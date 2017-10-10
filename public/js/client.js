@@ -390,7 +390,7 @@ TrelloPowerUp.initialize({
     // For instance, if your Power-Up requires a token to be set for the member you could do the following:
     return t.get('member', 'private', 'token')
     .then(function(token){
-      return token.length > 0;
+      return token;
     });
     // You can also return the object synchronously if you know the answer synchronously.
   },
@@ -399,12 +399,16 @@ TrelloPowerUp.initialize({
     // which shows when 'authorization-status' returns { authorized: false }.
     
     // In this case we'll open a popup to get a user's Trello token.
-    return t.popup({
-      title: 'My Auth Popup',
-      args: { apiKey: process.env.TRELLO_API_KEY }, // Get API key from local environment variable
-      url: './authorize.html', // Check out public/authorize.html to see how to ask a user to auth with Trello
-      height: 140,
-    });
+    if (process.env.TRELLO_API_KEY) {
+      return t.popup({
+        title: 'My Auth Popup',
+        args: { apiKey: process.env.TRELLO_API_KEY }, // Get API key from local environment variable
+        url: './authorize.html', // Check out public/authorize.html to see how to ask a user to auth with Trello
+        height: 140,
+      });
+    } else {
+      console.log("Looks like you need to add your API key to the project's environment variables!");
+    }
   },
   'show-settings': function(t, options){
     // when a user clicks the gear icon by your Power-Up in the Power-Ups menu
