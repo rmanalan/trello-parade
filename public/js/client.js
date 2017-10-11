@@ -7,8 +7,8 @@ var Promise = TrelloPowerUp.Promise;
 
 Trello Data Access
 
-The following methods show all allowed fields, you only need to include those you want
-They all return promises that resolve to an object with the requested fields
+The following methods show all allowed fields, you only need to include those you want.
+They all return promises that resolve to an object with the requested fields.
 
 Get information about the current board
 t.board('id', 'name', 'url', 'shortLink', 'members')
@@ -29,6 +29,10 @@ t.cards('id', 'name', 'desc', 'due', 'closed', 'cover', 'attachments', 'members'
 
 Get information about the current active Trello member
 t.member('id', 'fullName', 'username')
+
+For access to the rest of Trello's data, you'll need to use the RESTful API. This will require you to ask the
+user to authorize your Power-Up to access Trello on their behalf. We've included an example of how to
+do this in the `🔑 Authorization Capabilities 🗝` section at the bottom.
 
 */
 
@@ -72,7 +76,7 @@ t.getAll();
 
 */
 
-var HYPERDEV_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Fhyperdev.svg';
+var GLITCH_ICON = 'https://cdn.glitch.com/2442c68d-7b6d-4b69-9d13-feab530aa88e%2Fglitch-icon.svg?1489773457908';
 var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 var WHITE_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-white.svg';
 
@@ -94,7 +98,7 @@ var getBadges = function(t){
         return {
           title: 'Detail Badge', // for detail badges only
           text: 'Dynamic ' + (Math.random() * 100).toFixed(0).toString(),
-          icon: HYPERDEV_ICON, // for card front badges only
+          icon: GLITCH_ICON, // for card front badges only
           color: randomBadgeColor(),
           refresh: 10 // in seconds
         };
@@ -104,7 +108,7 @@ var getBadges = function(t){
       // you can mix and match between static and dynamic
       title: 'Detail Badge', // for detail badges only
       text: 'Static',
-      icon: HYPERDEV_ICON, // for card front badges only
+      icon: GLITCH_ICON, // for card front badges only
       color: null
     }, {
       // card detail badges (those that appear on the back of cards)
@@ -112,7 +116,7 @@ var getBadges = function(t){
       // open a popup on click
       title: 'Popup Detail Badge', // for detail badges only
       text: 'Popup',
-      icon: HYPERDEV_ICON, // for card front badges only
+      icon: GLITCH_ICON, // for card front badges only
       callback: function(context) { // function to run on click
         return context.popup({
           title: 'Card Detail Badge Popup',
@@ -126,7 +130,7 @@ var getBadges = function(t){
       // go to a new tab at that url
       title: 'URL Detail Badge', // for detail badges only
       text: 'URL',
-      icon: HYPERDEV_ICON, // for card front badges only
+      icon: GLITCH_ICON, // for card front badges only
       url: 'https://trello.com/home',
       target: 'Trello Landing Page' // optional target for above url
     }];
@@ -273,7 +277,7 @@ TrelloPowerUp.initialize({
       return [{
         id: 'Yellowstone', // optional if you aren't using a function for the title
         claimed: claimed,
-        icon: HYPERDEV_ICON,
+        icon: GLITCH_ICON,
         title: 'Example Attachment Section: Yellowstone',
         content: {
           type: 'iframe',
@@ -298,7 +302,7 @@ TrelloPowerUp.initialize({
       url: options.url,
       title: '👉 ' + options.url + ' 👈',
       image: {
-        url: HYPERDEV_ICON,
+        url: GLITCH_ICON,
         logo: true // false if you are using a thumbnail of the content
       },
     };
