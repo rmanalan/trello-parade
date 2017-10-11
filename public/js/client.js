@@ -130,7 +130,7 @@ var getBadges = function(t){
       // go to a new tab at that url
       title: 'URL Detail Badge', // for detail badges only
       text: 'URL',
-      icon: GLITCH_ICON, // for card front badges only
+      icon: GRAY_ICON, // for card front badges only
       url: 'https://trello.com/home',
       target: 'Trello Landing Page' // optional target for above url
     }];
