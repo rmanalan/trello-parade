@@ -10,8 +10,7 @@ Once you remix this, you'll want to take a look at what the new name is. Click t
 
 Select the Trello team you want to add the Power-Up to. Note: You need to be an admin of the Trello team to add custom Power-Ups to it.
 
-Now click the `Create new Power-Up` button. If this is your first time creating a Power-Up, you'll need to agree to a "Joint Developer Agreement" first. After you have done that, you just need to give your cool new Power-Up a name, and paste the url link into the field titled `Iframe connector URL
-` (the one you created earlier).
+Now click the `Create new Power-Up` button. If this is your first time creating a Power-Up, you'll need to agree to a "Joint Developer Agreement" first. After you have done that, you just need to give your cool new Power-Up a name, and paste the url link into the field titled `Iframe connector URL` (the one you copied earlier).
 
 This example Power-Up makes use of the following capabilities:
 * authorization-status
