@@ -9,7 +9,6 @@ const BLACK_ICON = 'https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%
 const WHITE_ICON = 'https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2Ftrain-svgrepo-white.svg?1551478943630';
 
 const boardButtonCallback = function(t){
-  console.log(999, t);
   return t.modal({
     url: '/modal.html',
     fullscreen: true,
