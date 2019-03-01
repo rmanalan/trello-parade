@@ -3,17 +3,12 @@
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
     <link rel="stylesheet" href="./css/modal.css">
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h2>Tips for using t.modal()</h2>
-      <hr/>
-      <ol>
-        <li>You should only call t.modal() as a response to a user action, such as clicking a button.</li>
-        <li>Try to use t.popup() when possible instead of t.modal() as it helps to better maintain context.</li>
-        <li>Try to get your modal to load and render as quickly as possible.</li>
-      </ol>
-    </div>
-    <script src="./js/modal.js"></script>
+    <div id="root"></div>
+    <script src="./js/modal.js" type="text/babel"></script>
   </body>
 </html>
