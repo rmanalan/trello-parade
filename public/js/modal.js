@@ -10,8 +10,5 @@ t.render(async function(){
   const data = await t.lists('id', 'name');
   console.log(888,data);
   
-  ReactDOM.render(
-    <h1>Hello, world!</h1>,
-    document.getElementById('root')
-  );
 });
+
