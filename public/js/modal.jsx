@@ -21,9 +21,11 @@ class Parade extends React.Component {
 
 t.render(async () => {
   const lists = await t.lists('id', 'name');
-  ReactDOM.render(
-    <Parade lists={lists}></Parade>,
-    document.getElementById('root')
-  );
+  console.log('LISTS', lists);
 });
 
+ReactDOM.render(
+  <Parade></Parade>,
+  document.getElementById('root'),
+  () => {console.log('component mounted')}
+);
