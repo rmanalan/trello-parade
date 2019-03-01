@@ -1,13 +1,15 @@
 /* global TrelloPowerUp */
 
-var Promise = TrelloPowerUp.Promise;
+const Promise = TrelloPowerUp.Promise;
 
 
-var GLITCH_ICON = 'https://cdn.glitch.com/2442c68d-7b6d-4b69-9d13-feab530aa88e%2Fglitch-icon.svg?1489773457908';
-var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
-var ICON = 'https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2Ftrain-svgrepo-com.svg?1551478558347';
+const GLITCH_ICON = 'https://cdn.glitch.com/2442c68d-7b6d-4b69-9d13-feab530aa88e%2Fglitch-icon.svg?1489773457908';
+const GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
+const BLACK_ICON = 'https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2Ftrain-svgrepo-com.svg?1551478558347';
+const WHITE_ICON = 'https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2Ftrain-svgrepo-white.svg?1551478943630';
 
-var boardButtonCallback = function(t){
+const boardButtonCallback = function(t){
+  console.log(999, t);
   return t.modal({
     url: '/modal.html',
   });
@@ -15,13 +17,27 @@ var boardButtonCallback = function(t){
 
 TrelloPowerUp.initialize({
   'board-buttons': function(t, options){
-    return {
+    return [{
       // we can either provide a button that has a callback function
-      // that callback function should probably open a popup, overlay, or boardBar
-      icon: WHITE_ICON,
-      text: 'Popup',
-      callback: boardButtonCallback
-    };
+      icon: {
+        dark: WHITE_ICON,
+        light: BLACK_ICON
+      },
+      text: 'Start the Parade',
+      callback: boardButtonCallback,
+      condition: 'edit'
+    }, {
+      // or we can also have a button that is just a simple url
+      // clicking it will open a new tab at the provided url
+      icon: {
+        dark: WHITE_ICON,
+        light: BLACK_ICON
+      },
+      text: 'URL',
+      condition: 'always',
+      url: 'https://trello.com/inspiration',
+      target: 'Inspiring Boards' // optional target for above url
+    }];
   }
 });
 
