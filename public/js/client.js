@@ -12,6 +12,7 @@ const boardButtonCallback = function(t){
   console.log(999, t);
   return t.modal({
     url: '/modal.html',
+    fullscreen: true,
   });
 };
 
