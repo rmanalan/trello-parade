@@ -4,17 +4,13 @@
   "description": "A sample Trello Power-Up that can be used as a starting point for your own awesome Power-Up.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "repository": "https://github.com/trello/glitch-trello-power-up",
   "dependencies": {
-    "compression": "^1.7.1",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "node-nocache": "^1.0.4",
     "react": "^16.8.3",
     "react-dom": "^16.6.3",
     "react-scripts": "^2.1.7"
