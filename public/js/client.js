@@ -10,7 +10,7 @@ const WHITE_ICON = 'https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%
 
 const boardButtonCallback = function(t){
   return t.modal({
-    url: '/modal.html',
+    url: '/index.html',
     fullscreen: true,
   });
 };

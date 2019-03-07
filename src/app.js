@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './app.css';
 
+const t = window.TrelloPowerUp.iframe();
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  componentDidMount() {
+    t.render(async () => {
+      const lists = await t.lists('id', 'name');
+      console.log('LISTS', lists);
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code>
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>      
       </div>
     );
   }
