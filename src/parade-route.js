@@ -1,11 +1,10 @@
 import React from 'react';
 import ParadeQueue from './parade-route';
 
-function ParadeRoute(props) {
-  // const { cardOnDisplay } = props;
+function ParadeRoute({ cards, onSelect, cardOnDisplay }) {
   return (
     <div className="parade-route">
-      <ParadeQueue {...props} />
+      <ParadeQueue cards={cards} onSelect={onSelect} />
     </div>
   );
 }

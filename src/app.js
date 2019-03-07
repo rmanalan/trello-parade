@@ -23,9 +23,10 @@ class App extends Component {
   }
   
   onListSelect(evt) {
+    // const list = find(this.state.lists, { id: evt.currentTarget.value })
     this.setState({ 
       selectedList: evt.currentTarget.value,
-      cards: find(this.state.lists, { id: evt.currentTarget.value }).cards,
+      // cards: list.cards,
     });
   }
   
@@ -43,7 +44,8 @@ class App extends Component {
           /> :
           <ParadeRoute 
             cards={this.state.cards} 
-            onSelect={this.onCardSelect.bind(this)} 
+            onSelect={this.onCardSelect.bind(this)}
+            cardOnDisplay={this.state.cardOnDisplay}
           />
         }
       </div>
