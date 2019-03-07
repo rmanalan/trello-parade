@@ -5,10 +5,3 @@ body {
   justify-content: center;
   color: #fff;
 }
-#content {
-  background: white;
-  padding: 24px;
-  width: 80%;
-  max-width: 600px;
-  max-height: 90%;
-}

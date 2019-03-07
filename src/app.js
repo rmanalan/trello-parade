@@ -21,6 +21,7 @@ class App extends Component {
   }
   
   onListSelect(evt) {
+    debugger;
     this.setState({ selectedList: evt.currentTarget.value });    
   }
 
@@ -30,7 +31,7 @@ class App extends Component {
         <div className="list-selector">
           <ListSelector 
             lists={this.state.lists}
-            onChange={this.onListSelect}
+            onChange={this.onListSelect.bind(this)}
           />
         </div>
       </div>
