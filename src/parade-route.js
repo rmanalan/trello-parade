@@ -1,5 +1,5 @@
 import React from 'react';
-import ParadeQueue from './parade-route';
+import ParadeQueue from './parade-queue';
 
 function ParadeRoute({ cards, onSelect, cardOnDisplay }) {
   return (
