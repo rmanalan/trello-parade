@@ -7,25 +7,25 @@ const t = TrelloPowerUp.iframe();
 const text = t.arg('text');
 
 
-class Parade extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    console.log(777, this);
-    return (
-      <h1>Parade!</h1>
-    );
-  }
-}
+// class Parade extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     console.log(777, this.props);
+//     return (
+//       <h1>Parade!</h1>
+//     );
+//   }
+// }
 
+console.log('shit');
 t.render(async () => {
   const lists = await t.lists('id', 'name');
   console.log('LISTS', lists);
+  // ReactDOM.render(
+  //   <Parade lists={lists}></Parade>,
+  //   document.getElementById('root'),
+  //   () => {console.log('component mounted')}
+  // );
 });
-
-ReactDOM.render(
-  <Parade></Parade>,
-  document.getElementById('root'),
-  () => {console.log('component mounted')}
-);
