@@ -5,7 +5,6 @@ import ParadeRoute from './parade-route';
 import './app.css';
 
 const t = window.TrelloPowerUp.iframe();
-window.TrelloCards.load(document, { compact: false, allAnchors: false });
 
 class App extends Component {
   constructor(props) {
@@ -36,13 +35,16 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="App">
+      <div className="app">
         { !this.state.selectedList ?
           <ListSelector 
             lists={this.state.lists}
             onChange={this.onListSelect.bind(this)}
           /> :
-          <ParadeRoute cards={this.state.cards} onSelect={this.onCardSelect.bind(this)} />
+          <ParadeRoute 
+            cards={this.state.cards} 
+            onSelect={this.onCardSelect.bind(this)} 
+          />
         }
       </div>
     );
