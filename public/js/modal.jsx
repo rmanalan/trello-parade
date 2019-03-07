@@ -1,6 +1,6 @@
 /* global TrelloPowerUp */
 
-const { React, ReactDOM } = window;
+// const { React, ReactDOM } = window;
 const t = TrelloPowerUp.iframe();
 
 // you can access arguments passed to your iframe like so
@@ -18,9 +18,9 @@ const text = t.arg('text');
 //     );
 //   }
 // }
-
-console.log('shit');
+debugger
 t.render(async () => {
+  console.log('shi2t');
   const lists = await t.lists('id', 'name');
   console.log('LISTS', lists);
   // ReactDOM.render(
