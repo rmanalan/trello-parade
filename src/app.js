@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: []
+      lists: [],
+      selectedList: null,
     };
   }
   
@@ -18,12 +19,20 @@ class App extends Component {
       this.setState({lists});
     });
   }
+  
+  onListSelect(evt) {
+    this.setState({ selectedList: evt.currentTarget.value });    
+  }
 
   render() {
     return (
       <div className="App">
-        <div className="
-        <ListSelector lists={this.state.lists} />
+        <div className="list-selector">
+          <ListSelector 
+            lists={this.state.lists}
+            onChange={this.onListSelect}
+          />
+        </div>
       </div>
     );
   }

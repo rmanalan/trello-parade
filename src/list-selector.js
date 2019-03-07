@@ -1,10 +1,14 @@
 import React from 'react';
 
-function ListSelector({ lists }) {
+function ListSelector({ lists, onChange }) {
   return (
-    <select>
-      { lists.map(list => <option value={list.id}>{list.name}</option>) }
-    </select>
+    <>
+      <label htmlFor="selected-list">List to put on parade:</label>
+      <select name="selected-list" onChange={onChange.bind(this.)} >
+        <option></option>
+        { lists.map(list => <option key={list.id} value={list.id}>{list.name}</option>) }
+      </select>
+    </>
   );
 }
 
