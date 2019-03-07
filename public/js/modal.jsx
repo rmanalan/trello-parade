@@ -1,9 +1,10 @@
 const { 
   React, 
   ReactDOM, 
-  TrelloPowerUp } = window;
-const t = TrelloPowerUp.iframe();
+  TrelloPowerUp 
+} = window;
 
+const t = TrelloPowerUp.iframe();
 
 class Parade extends React.Component {
   constructor(props) {
