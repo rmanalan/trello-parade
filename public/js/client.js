@@ -23,20 +23,9 @@ TrelloPowerUp.initialize({
         dark: WHITE_ICON,
         light: BLACK_ICON
       },
-      text: 'Start the Parade',
+      text: 'Start Parade',
       callback: boardButtonCallback,
       condition: 'edit'
-    }, {
-      // or we can also have a button that is just a simple url
-      // clicking it will open a new tab at the provided url
-      icon: {
-        dark: WHITE_ICON,
-        light: BLACK_ICON
-      },
-      text: 'URL',
-      condition: 'always',
-      url: 'https://trello.com/inspiration',
-      target: 'Inspiring Boards' // optional target for above url
     }];
   }
 });
