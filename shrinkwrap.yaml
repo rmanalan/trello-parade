@@ -1,4 +1,5 @@
 dependencies:
+  lodash: 4.17.11
   react: 16.8.4
   react-dom: 16.8.4
   react-scripts: 2.1.8
@@ -10801,6 +10802,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  lodash: ^4.17.11
   react: ^16.8.3
   react-dom: ^16.6.3
   react-scripts: ^2.1.7

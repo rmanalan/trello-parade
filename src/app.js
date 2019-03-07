@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {  } from 'lodash';
 import ListSelector from './list-selector';
+import ParadeRoute from './parade-route';
 import './app.css';
 
 const t = window.TrelloPowerUp.iframe();
@@ -10,30 +12,33 @@ class App extends Component {
     this.state = {
       lists: [],
       selectedList: null,
+      cards: [],
     };
   }
   
   componentDidMount() {
-    t.render(async () => {
-      const lists = await t.lists('id', 'name');
-      this.setState({lists});
-    });
+    t.lists('all')
+      .then(lists => this.setState({lists}));
   }
   
   onListSelect(evt) {
-    debugger;
-    this.setState({ selectedList: evt.currentTarget.value });    
+    this.setState({ 
+      selectedList: evt.currentTarget.value,
+      cards: 
+    });
   }
-
+  
   render() {
+    console.log(this.state);
     return (
       <div className="App">
-        <div className="list-selector">
+        { !this.state.selectedList ?
           <ListSelector 
             lists={this.state.lists}
             onChange={this.onListSelect.bind(this)}
-          />
-        </div>
+          /> :
+          <ParadeRoute cards={this.state.cards}/>
+        }
       </div>
     );
   }
