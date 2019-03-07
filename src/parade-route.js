@@ -1,9 +1,11 @@
 import React from 'react';
+import ParadeQueue from './parade-route';
 
-function ParadeRoute({ cards, onSelect }) {
+function ParadeRoute(props) {
+  const { cardOnDisplay } = props;
   return (
     <div className="parade-route">
-      parade route
+      <ParadeQueue {...props} />
     </div>
   );
 }

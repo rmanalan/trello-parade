@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {  } from 'lodash';
+import { find } from 'lodash';
 import ListSelector from './list-selector';
 import ParadeRoute from './parade-route';
 import './app.css';
 
 const t = window.TrelloPowerUp.iframe();
+window.TrelloCards.load(document, { compact: false, allAnchors: false });
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends Component {
       lists: [],
       selectedList: null,
       cards: [],
+      cardOnDisplay: null,
     };
   }
   
@@ -24,8 +26,11 @@ class App extends Component {
   onListSelect(evt) {
     this.setState({ 
       selectedList: evt.currentTarget.value,
-      cards: 
+      cards: find(this.state.lists, { id: evt.currentTarget.value }).cards,
     });
+  }
+  
+  onCardSelect() {
   }
   
   render() {
@@ -37,7 +42,7 @@ class App extends Component {
             lists={this.state.lists}
             onChange={this.onListSelect.bind(this)}
           /> :
-          <ParadeRoute cards={this.state.cards}/>
+          <ParadeRoute cards={this.state.cards} onSelect={this.onCardSelect.bind(this)} />
         }
       </div>
     );
