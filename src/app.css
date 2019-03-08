@@ -23,6 +23,7 @@
 .parade-queue li a {
   display:block;
   padding:10px;
+  text-decoration: none;
 }
 
 .card-on-display {
