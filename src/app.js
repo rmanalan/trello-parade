@@ -23,10 +23,10 @@ class App extends Component {
   }
   
   onListSelect(evt) {
-    // const list = find(this.state.lists, { id: evt.currentTarget.value })
+    const list = find(this.state.lists, { id: evt.currentTarget.value })
     this.setState({ 
       selectedList: evt.currentTarget.value,
-      // cards: list.cards,
+      cards: list.cards,
     });
   }
   
