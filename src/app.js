@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { find } from 'lodash';
 import ListSelector from './list-selector';
 import ParadeRoute from './parade-route';
+import CardOnDisplay from './card-on-display';
 import './app.css';
 
 const t = window.TrelloPowerUp.iframe();
@@ -39,7 +40,7 @@ class App extends Component {
     return (
       <div className="app row">
         <div className="card-on-display col-xs-9">
-          { this.state.cardOnDisplay ? <div>{this.state.cardOnDisplay.url}</div> : null }
+          { this.state.cardOnDisplay ? <CardOnDisplay card={this.state.cardOnDisplay} /> : null }
         </div>
         <div className="sidebar col-xs-3">
           { !this.state.selectedList ?
