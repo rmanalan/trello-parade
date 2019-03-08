@@ -36,23 +36,23 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="app">
-        <div className="">
-          { this.state.cardOnDisplay ?
-            <div>card on display> : null
+      <div className="app row">
+        <div className="card-on-display col-xs-9">
+          { this.state.cardOnDisplay ? <div>card on display</div> : null }
+        </div>
+        <div className="sidebar col-xs-3">
+          { !this.state.selectedList ?
+            <ListSelector 
+              lists={this.state.lists}
+              onChange={this.onListSelect.bind(this)}
+            /> :
+            <ParadeRoute 
+              cards={this.state.cards} 
+              onSelect={this.onCardSelect.bind(this)}
+              cardOnDisplay={this.state.cardOnDisplay}
+            />
           }
         </div>
-        { !this.state.selectedList ?
-          <ListSelector 
-            lists={this.state.lists}
-            onChange={this.onListSelect.bind(this)}
-          /> :
-          <ParadeRoute 
-            cards={this.state.cards} 
-            onSelect={this.onCardSelect.bind(this)}
-            cardOnDisplay={this.state.cardOnDisplay}
-          />
-        }
       </div>
     );
   }

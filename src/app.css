@@ -1,12 +1,16 @@
-.parade-queue {
-  width: 200px;
+.sidebar {
   padding:10px;
+}
+
+.parade-queue {
+  margin:0;
+  padding:0;
 }
 
 .parade-queue li {
   display:block;
   padding:10px;
-  margin-bottom: 5px;
+  margin-bottom: 0 5px 0 0;
   background: white;
   border: 1px solid #999;
   border-radius: 3px;
