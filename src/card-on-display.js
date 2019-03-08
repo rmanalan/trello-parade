@@ -7,7 +7,10 @@ function CardOnDisplay({ card }) {
   let ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));
   
   if (ytAttachment) {
-    ytid = ytAttachment.url.match(re)
+    ytid = ytAttachment.url.match(re)[2];
+    if (/=/.test(ytid)) {
+      ytid
+    }
   }
   
   // 3rd pass
