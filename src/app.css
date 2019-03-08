@@ -1,14 +1,21 @@
+.sidebar {
+  background: url(https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2F12-asphalt-road-seamless.jpg?1552006682358) repeat-y;
+  height: 100vh;
+  background-size: 306px 300px;
+}
+.list-selector {
+  padding: 10px 10px 10px 0;
+}
 .parade-queue {
   margin:0;
-  padding:0;
-  padding:10px;
+  padding:10px 10px 10px 0;
 }
 
 .parade-queue li {
   display:block;
   padding:0;
   margin-bottom: 5px;
-  background: white;
+  background: rgba(256,256,256, .5);
   border: 1px solid #999;
   border-radius: 3px;
 }
@@ -16,4 +23,8 @@
 .parade-queue li a {
   display:block;
   padding:10px;
+}
+
+.card-on-display {
+  background: #000;
 }
