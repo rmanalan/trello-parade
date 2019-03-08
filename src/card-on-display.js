@@ -2,14 +2,12 @@ import React from 'react';
 import _ from 'lodash';
 
 function CardOnDisplay({ card }) {
-  let ytid = _.find(card.attachments, attachment => /youtube/.test(attachment.url));
+  let ytid;
+  const re = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/(.+)$/;
+  let ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));
   
-  // 2nd pass
-  if (!ytid) {
-    ytid = _.find(card.attachments, attachment => /youtu.be/.test(attachment.url));
-    ytid = ytid ? ytid.split('/').slice(-1)[0] : null;
-  } else {
-    ytid = ytid.url.split('=').slice(-1)[0];
+  if (ytAttachment) {
+    ytid = ytAttachment.url.match(re)
   }
   
   // 3rd pass
