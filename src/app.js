@@ -30,7 +30,8 @@ class App extends Component {
     });
   }
   
-  onCardSelect() {
+  onCardSelect(card) {
+    this.setState({ cardOnDisplay: card });
   }
   
   render() {
@@ -38,7 +39,7 @@ class App extends Component {
     return (
       <div className="app row">
         <div className="card-on-display col-xs-9">
-          { this.state.cardOnDisplay ? <div>card on display</div> : null }
+          { this.state.cardOnDisplay ? <div>{this.state.cardOnDisplay.url}</div> : null }
         </div>
         <div className="sidebar col-xs-3">
           { !this.state.selectedList ?

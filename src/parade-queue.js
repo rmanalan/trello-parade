@@ -5,7 +5,7 @@ function ParadeQueue({ cards, onSelect }) {
     <ul className="parade-queue">
       {cards.map(card => 
         <li key={card.id} className="trello-card-compact">
-          <a href={card.url}>{card.name}</a>
+          <a href="#" onClick={onSelect.bind(this, card)}>{card.name}</a>
         </li>)}
       <script src="https://p.trellocdn.com/embed.min.js"></script>
     </ul>

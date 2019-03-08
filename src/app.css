@@ -1,17 +1,19 @@
-.sidebar {
-  padding:10px;
-}
-
 .parade-queue {
   margin:0;
   padding:0;
+  padding:10px;
 }
 
 .parade-queue li {
   display:block;
-  padding:10px;
-  margin-bottom: 0 5px 0 0;
+  padding:0;
+  margin-bottom: 5px;
   background: white;
   border: 1px solid #999;
   border-radius: 3px;
+}
+
+.parade-queue li a {
+  display:block;
+  padding:10px;
 }
