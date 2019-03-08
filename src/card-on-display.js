@@ -5,9 +5,9 @@ function CardOnDisplay({ card }) {
   return (
     <iframe 
       className="vid"
-      src={`https://www.youtube.com/embed/${ytid}`}
+      src={`https://www.youtube.com/embed/${ytid}?autoplay=1`}
       frameborder="0" 
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
       allowfullscreen />
   );
 }
