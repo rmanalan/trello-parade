@@ -1,12 +1,12 @@
 import React from 'react';
 import _ from 'lodash';
-import Plyr from 'react-plyr';
+import ReactPlayer from 'react-player'
 
 const ytRegEx = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/sim;
 const movRegEx = /^https:\/\/trello-attachments\.s3\.amazonaws\.com\/(.+).mov$/;
 
 function getYTId(url) {
-  let ytid, movAttachment;
+  let ytid;
   const params = new URL(url);
   ytid = params.searchParams.get('v');
   if (!ytid) {
@@ -17,7 +17,7 @@ function getYTId(url) {
 }
 
 function CardOnDisplay({ card }) {
-  let ytid;
+  let ytid, movAttachment;
   
   // Look in attachments first
   const ytAttachment = _.find(card.attachments, attachment => ytRegEx.test(attachment.url));  
@@ -36,6 +36,15 @@ function CardOnDisplay({ card }) {
     movAttachment = _.find(card.attachments, attachment => movRegEx.test(attachment.url));  
   };
   
+  const presentingLive = (
+    <div className="row center-xs middle-xs presenting-live">
+      <div className="col-xs-6">
+        <div className="box">
+          No YouTube video attached. Presenting live!
+        </div>
+      </div>
+    </div>
+  );
     
   return (
     <>
@@ -46,8 +55,14 @@ function CardOnDisplay({ card }) {
           src={`https://www.youtube.com/embed/${ytid}?autoplay=1`}
           frameBorder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-          allowFullScreen /> : {presentingLive}
-         
+          allowFullScreen /> : {presentingLive}         
+      }
+      { movAttachment.url ?
+        <ReactPlayer
+          url={movAttachment.url}
+          playing
+          controls
+        /> : {presentingLive}         
       }
     </>
   );
