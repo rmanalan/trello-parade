@@ -9,13 +9,8 @@ function CardOnDisplay({ card }) {
   if (ytAttachment) {
     ytid = ytAttachment.url.match(re)[2];
     if (/=/.test(ytid)) {
-      ytid
+      ytid = ytid.split('=').slice(-1);
     }
-  }
-  
-  // 3rd pass
-  if (!ytid) {
-    ytid = /https?:\/\/youtube/
   }
     
   return (
