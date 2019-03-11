@@ -16,6 +16,18 @@ function getYTId(url) {
   return ytid;
 }
 
+function PresentingLive() {
+  return (
+    <div className="row center-xs middle-xs presenting-live">
+      <div className="col-xs-6">
+        <div className="box">
+          No YouTube video attached. Presenting live!
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CardOnDisplay({ card }) {
   let ytid, movAttachment;
   
@@ -33,36 +45,29 @@ function CardOnDisplay({ card }) {
   
   // TODO add support for mov/mp4
   if (!ytid) {
+    debugger;
     movAttachment = _.find(card.attachments, attachment => movRegEx.test(attachment.url));  
   };
   
-  const presentingLive = (
-    <div className="row center-xs middle-xs presenting-live">
-      <div className="col-xs-6">
-        <div className="box">
-          No YouTube video attached. Presenting live!
-        </div>
-      </div>
-    </div>
-  );
-    
+  
+  
   return (
     <>
-      { ytid ?
+      { ytid && !movAttachment ?
         <iframe 
           className="vid"
           title={card.name}
           src={`https://www.youtube.com/embed/${ytid}?autoplay=1`}
           frameBorder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-          allowFullScreen /> : {presentingLive}         
+          allowFullScreen /> : <PresentingLive />
       }
-      { movAttachment.url ?
+      { !ytid && movAttachment ?
         <ReactPlayer
           url={movAttachment.url}
           playing
           controls
-        /> : {presentingLive}         
+        /> : <PresentingLive />
       }
     </>
   );
