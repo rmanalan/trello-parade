@@ -24,11 +24,13 @@ class App extends Component {
   }
   
   onListSelect(evt) {
-    const list = find(this.state.lists, { id: evt.currentTarget.value })
-    this.setState({ 
-      selectedList: evt.currentTarget.value,
-      cards: list.cards,
-    });
+    if (evt.currentTarget.value) {
+      const list = find(this.state.lists, { id: evt.currentTarget.value })
+      this.setState({ 
+        selectedList: evt.currentTarget.value,
+        cards: list.cards,
+      });
+    }
   }
   
   onCardSelect(card) {
@@ -36,25 +38,22 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state);
     return (
       <div className="app row">
         <div className="card-on-display col-xs-9">
           { this.state.cardOnDisplay ? <CardOnDisplay card={this.state.cardOnDisplay} /> : null }
         </div>
         <div className="sidebar col-xs-3">
-          { !this.state.selectedList ?
-            <ListSelector 
-              lists={this.state.lists}
-              cardOnDisplay={this.state.cardOnDisplay}
-              onChange={this.onListSelect.bind(this)}
-            /> :
-            <ParadeRoute 
-              cards={this.state.cards} 
-              onSelect={this.onCardSelect.bind(this)}
-              cardOnDisplay={this.state.cardOnDisplay}
-            />
-          }
+          <ListSelector 
+            lists={this.state.lists}
+            cardOnDisplay={this.state.cardOnDisplay}
+            onChange={this.onListSelect.bind(this)}
+          /> 
+          <ParadeRoute 
+            cards={this.state.cards} 
+            onSelect={this.onCardSelect.bind(this)}
+            cardOnDisplay={this.state.cardOnDisplay}
+          />
         </div>
       </div>
     );

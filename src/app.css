@@ -1,3 +1,7 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
 .sidebar {
   background: url(https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2F12-asphalt-road-seamless.jpg?1552006682358) repeat-y;
   height: 100vh;
@@ -7,9 +11,16 @@
   overflow: scroll;
   z-index: 100;
   width:300px;
+  min-width: 300px;
+  max-width: 300px;
 }
 .list-selector {
-  padding: 10px 10px 10px 0;
+  padding: 10px 10px 0 0;
+  color: #000;
+}
+.list-selector select {
+  height: 30px;
+  margin-bottom: 5px;
 }
 .parade-queue {
   margin:0;

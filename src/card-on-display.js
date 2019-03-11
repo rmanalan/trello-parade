@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-const re = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/s;
+const re = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/sim;
 
 function getYTId(url) {
   let ytid;
