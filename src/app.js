@@ -46,6 +46,7 @@ class App extends Component {
           { !this.state.selectedList ?
             <ListSelector 
               lists={this.state.lists}
+              cardOnDisplay={this.state.cardOnDisplay}
               onChange={this.onListSelect.bind(this)}
             /> :
             <ParadeRoute 
