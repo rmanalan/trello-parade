@@ -2,6 +2,7 @@ dependencies:
   lodash: 4.17.11
   react: 16.8.4
   react-dom: 16.8.4
+  react-plyr: 2.2.0
   react-scripts: 2.1.8
 packages:
   /@babel/code-frame/7.0.0:
@@ -3475,6 +3476,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-7DYm8qe+gPx/h77QlCyFmX80+fGaE/6A/Ekl0zaszYOubvySO2saYFdQ78P29D0UsULxFKCetDGNaNRUdSF+2A==
+  /custom-event-polyfill/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha512-3FxpFlzGcHrDykwWu+xWVXZ8PfykM/9/bI3zXb953sh+AjInZWcQmrnmvPoZgiqNjmbtTm10PWvYqvRW527x6g==
   /cyclist/0.2.2:
     dev: false
     resolution:
@@ -6547,6 +6552,10 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-fkpz8ejdnEMG3s37wGL07iSBDg99O9D5yflE9RGNH3hRdx9SOwYfnGYdZOUIZitN8E+E2vkq3MUMYMvPYl5ZZA==
+  /loadjs/3.5.5:
+    dev: false
+    resolution:
+      integrity: sha512-qBuLnKt4C6+vctutozFqPHQ6s4SSa9tcE64NsvDJ92UZmUrFvqGI1oVOtnZz2xwpgOT+2niQtHtQIDP4e/wlTA==
   /locate-path/2.0.0:
     dependencies:
       p-locate: 2.0.0
@@ -7635,6 +7644,17 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
+  /plyr/3.5.2:
+    dependencies:
+      core-js: 2.6.5
+      custom-event-polyfill: 1.0.6
+      loadjs: 3.5.5
+      rangetouch: 2.0.0
+      raven-js: 3.27.0
+      url-polyfill: 1.1.5
+    dev: false
+    resolution:
+      integrity: sha512-7wx2uC4x2KusSWxdDYlXknwKjoFFCgPEc5gnoSGAZ9zmYcSIxRfAt1WPenkqix7tLRE1Pg7dgi91ZymxjZmbSg==
   /pn/1.1.0:
     dev: false
     resolution:
@@ -8553,6 +8573,14 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-9JvmtIeJTdxA3MlKMi9hEJLgDV4=
+  /rangetouch/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-y66wTFbwh7KafYligRsmIYYR1kZY8U9tGHH9PgbVhBUFmGzPMsOSjslXPedgR5D3M9W1QKVbAf1AtaVAt7JJTw==
+  /raven-js/3.27.0:
+    dev: false
+    resolution:
+      integrity: sha512-vChdOL+yzecfnGA+B5EhEZkJ3kY3KlMzxEhShKh6Vdtooyl0yZfYNFQfYzgMf2v4pyQa+OTZ5esTxxgOOZDHqw==
   /raw-body/2.3.3:
     dependencies:
       bytes: 3.0.0
@@ -8627,6 +8655,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
+  /react-plyr/2.2.0:
+    dependencies:
+      plyr: 3.5.2
+      prop-types: 15.7.2
+    dev: false
+    peerDependencies:
+      react: 16.x
+    resolution:
+      integrity: sha512-05oBKvCC9F2VMP7BNhh3x7xeK6PNUMYBPPWIip5sDRuey4HmpghfLQyOfsbNKTssR6kkxRSi2X9neYmfr91NuA==
   /react-scripts/2.1.8:
     dependencies:
       '@babel/core': 7.2.2
@@ -10228,6 +10265,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-/92DTTorg4JjktLNLe6GPS2/RvAd/RGr6LuktmWSMLEOa6rjnlrFXNgSbSmkNvCoL2T028A0a1JaJLzRMlFoHg==
+  /url-polyfill/1.1.5:
+    dev: false
+    resolution:
+      integrity: sha512-9XjIJ6nwrU+nGd8t90Ze0Zs7t8A+SU0gqsqPttj6j3zAVe5q0HFcuv37nDBdVSPpi4aTHTfbUF/i+ZVD+o2EbA==
   /url/0.11.0:
     dependencies:
       punycode: 1.3.2
@@ -10805,4 +10846,5 @@ specifiers:
   lodash: ^4.17.11
   react: ^16.8.3
   react-dom: ^16.6.3
+  react-plyr: ^2.2.0
   react-scripts: ^2.1.7

@@ -30,6 +30,12 @@ class App extends Component {
         selectedList: evt.currentTarget.value,
         cards: list.cards,
       });
+    } else {
+      this.setState({ 
+        selectedList: null,
+        cards: [],
+        cardsOnDisplay: null,
+      });
     }
   }
   

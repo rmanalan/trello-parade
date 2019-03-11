@@ -14,7 +14,8 @@
     "react": "^16.8.3",
     "react-dom": "^16.6.3",
     "react-scripts": "^2.1.7",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "react-plyr": "^2.2.0"
   },
   "engines": {
     "node": "11.x"
