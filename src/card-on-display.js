@@ -3,14 +3,19 @@ import _ from 'lodash';
 
 function CardOnDisplay({ card }) {
   let ytid;
-  const re = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/(.+)$/;
-  let ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));
+  const re = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/s;
   
-  if (ytAttachment) {
-    ytid = ytAttachment.url.match(re)[2];
-    if (/=/.test(ytid)) {
-      ytid = ytid.split('=').slice(-1);
-    }
+  // Look in attachments first
+  const ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));
+  
+  ytid = ytAttachment ? ytAttachment.url.match(re)[4] : null;
+  ytid = ytid ? ytid.split('=').slice(-1) : null;
+  
+  // Can't find in attachments... look in description
+  if (!ytid) {
+    debugger;
+    ytid = card.desc.match(re)[4];
+    ytid = ytid ? ytid.split('=').slice(-1) : null;
   }
     
   return (
@@ -22,7 +27,7 @@ function CardOnDisplay({ card }) {
           frameborder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
           allowfullscreen /> :
-         <div>YouTube video not attached</div>
+         <div className="presenting-live">No YouTube video attached. Presenting live!</div>
       }
     </>
   );
