@@ -2,6 +2,11 @@
   background: url(https://cdn.glitch.com/20b7855b-f793-4f8c-9f47-bea23ab59e22%2F12-asphalt-road-seamless.jpg?1552006682358) repeat-y;
   height: 100vh;
   background-size: 97% 300px;
+  position: fixed;
+  right: 0;
+  overflow: scroll;
+  z-index: 100;
+  width:100%;
 }
 .list-selector {
   padding: 10px 10px 10px 0;
@@ -29,6 +34,10 @@
 .card-on-display {
   background: #000;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .vid {

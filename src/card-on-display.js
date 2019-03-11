@@ -5,8 +5,9 @@ const re = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/s;
 
 function getYTId(url) {
   let ytid;
-  const params = new URLSearchParams(url);
-  ytid = params.get('v');
+  const params = new URL(url);
+  ytid = params.searchParams.get('v');
+  debugger;
   if (!ytid) {
     ytid = url.match(re)[4];
     ytid = ytid ? ytid.split('=').slice(-1)[0] : null;
@@ -20,7 +21,6 @@ function CardOnDisplay({ card }) {
   // Look in attachments first
   const ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));  
   if (ytAttachment) {
-    debugger;
     ytid = getYTId(ytAttachment.url);
   }
   
@@ -36,9 +36,9 @@ function CardOnDisplay({ card }) {
         <iframe 
           className="vid"
           src={`https://www.youtube.com/embed/${ytid}?autoplay=1`}
-          frameborder="0" 
+          frameBorder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-          allowfullscreen /> :
+          allowFullScreen /> :
          <div className="row center-xs middle-xs presenting-live">
            <div class="col-xs-6">
              <div class="box">
