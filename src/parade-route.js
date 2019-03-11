@@ -4,7 +4,7 @@ import ParadeQueue from './parade-queue';
 function ParadeRoute({ cards, onSelect, cardOnDisplay }) {
   return (
     <div className="parade-route box">
-      <ParadeQueue cards={cards} onSelect={onSelect} />
+      <ParadeQueue cards={cards} onSelect={onSelect} cardOnDisplay={cardOnDisplay} />
     </div>
   );
 }

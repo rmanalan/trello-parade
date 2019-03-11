@@ -16,13 +16,17 @@
   padding:10px 10px 10px 0;
 }
 
-.parade-queue li {
+.card {
   display:block;
   padding:0;
   margin-bottom: 5px;
   background: rgba(256,256,256, .5);
   border: 1px solid #999;
   border-radius: 3px;
+}
+
+.selected-card {
+  background: rgba(256,256,256, 1);  
 }
 
 .parade-queue li a {
