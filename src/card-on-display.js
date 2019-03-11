@@ -21,7 +21,7 @@ function PresentingLive() {
     <div className="row center-xs middle-xs presenting-live">
       <div className="col-xs-6">
         <div className="box">
-          No YouTube video attached. Presenting live!
+          No video attached. Presenting live!
         </div>
       </div>
     </div>
