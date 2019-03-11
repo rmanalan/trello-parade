@@ -1,31 +1,33 @@
 import React from 'react';
 import _ from 'lodash';
 
+const re = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/s;
+
+function getYTId(url) {
+  let ytid;
+  const params = new URLSearchParams(url);
+  ytid = params.get('v');
+  if (!ytid) {
+    ytid = url.match(re)[4];
+    ytid = ytid ? ytid.split('=').slice(-1)[0] : null;
+  }
+  return ytid;
+}
+
 function CardOnDisplay({ card }) {
   let ytid;
-  const re = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/s;
   
   // Look in attachments first
-  const ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));
-  
-  ytid = ytAttachment ? ytAttachment.url.match(re)[4] : null;
-  ytid = ytid ? ytid.split('=').slice(-1)[0] : null;
-  
+  const ytAttachment = _.find(card.attachments, attachment => re.test(attachment.url));  
   if (ytAttachment) {
-    const params = new URLSearchParams(ytAttachment.url);
-    if (params) {
-      ytid = params.get('v');
-    } else {
-      ytid = ytAttachment ? ytAttachment.url.match(re)[4] : null;
-      ytid = ytid ? ytid.split('=').slice(-1)[0] : null;
-    }
+    debugger;
+    ytid = getYTId(ytAttachment.url);
   }
   
   // Can't find in attachments... look in description
   if (!ytid) {
-    debugger
-    ytid = re.test(card.desc) ? card.desc.match(re)[4] : null;
-    ytid = ytid ? ytid.split('=').slice(-1)[0] : null;
+    const url = re.test(card.desc) ? card.desc.match(re)[0] : null;
+    ytid = url ? getYTId(url) : null;
   }
     
   return (
