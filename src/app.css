@@ -6,7 +6,7 @@
   right: 0;
   overflow: scroll;
   z-index: 100;
-  width:100%;
+  width:300px;
 }
 .list-selector {
   padding: 10px 10px 10px 0;
@@ -20,7 +20,7 @@
   display:block;
   padding:0;
   margin-bottom: 5px;
-  background: rgba(256,256,256, .5);
+  background: rgba(256,256,256, .7);
   border: 1px solid #999;
   border-radius: 3px;
 }
@@ -42,6 +42,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  max-width:calc(100% - 300px);
 }
 
 .vid {
@@ -51,6 +52,7 @@
 
 .presenting-live {
   color: #fff;
-  font-size: 24px;
+  font-size: 30px;
   height: 100vh;
+  line-height: 170%;
 }
