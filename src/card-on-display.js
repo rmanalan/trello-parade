@@ -3,7 +3,7 @@ import _ from 'lodash';
 import ReactPlayer from 'react-player'
 
 const ytRegEx = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/(.+)$/sim;
-const movRegEx = /^https:\/\/trello-attachments\.s3\.amazonaws\.com\/(.+).mov$/;
+const movRegEx = /^https:\/\/trello-attachments\.s3\.amazonaws\.com\/(.+).(mov|mp4|ogv|webm|m3u8|mpd)$/;
 
 function getYTId(url) {
   let ytid;
@@ -45,12 +45,10 @@ function CardOnDisplay({ card }) {
   
   // TODO add support for mov/mp4
   if (!ytid) {
-    debugger;
     movAttachment = _.find(card.attachments, attachment => movRegEx.test(attachment.url));  
   };
-  
-  
-  
+  console.log(ytid, movAttachment);
+    
   return (
     <>
       { ytid && !movAttachment ?
@@ -60,14 +58,14 @@ function CardOnDisplay({ card }) {
           src={`https://www.youtube.com/embed/${ytid}?autoplay=1`}
           frameBorder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-          allowFullScreen /> : <PresentingLive />
-      }
-      { !ytid && movAttachment ?
-        <ReactPlayer
-          url={movAttachment.url}
-          playing
-          controls
-        /> : <PresentingLive />
+          allowFullScreen /> : (!ytid && movAttachment ?
+            <ReactPlayer
+              url={movAttachment.url}
+              playing
+              controls
+              width="100%"
+              height="100%"
+            /> : <PresentingLive />)
       }
     </>
   );
